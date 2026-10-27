@@ -24,7 +24,7 @@ func main() {
 	log.Fatal("It didn't connect", err)
  }
  http.HandleFunc("POST /userss", func(w http.ResponseWriter, r *http.Request) {
-	var user []User
+	var user User
 	if err := json.NewDecoder(r.Body).Decode(&user); err != nil{
 		http.Error(w, "JSON is incorrect!", http.StatusBadRequest)
 		return
